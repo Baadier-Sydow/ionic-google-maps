@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { MapsProvider } from '../providers/maps/maps';
 import { JsMapsProvider } from '../providers/js-maps/js-maps';
 import { NativeMapsProvider } from '../providers/native-maps/native-maps';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NativeMapsProvider } from '../providers/native-maps/native-maps';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MapsProvider,
     JsMapsProvider,
-    NativeMapsProvider
+    NativeMapsProvider,
+    GoogleMaps
   ]
 })
 export class AppModule {}
