@@ -1,17 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the JsMapsProvider provider.
+declare var google;
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class JsMapsProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello JsMapsProvider Provider');
+  map: any;
+
+  constructor() {
+    
+  }
+
+  init(location, element){
+    let latLng = new google.maps.LatLng(location.latitude, location.longitude);
+
+    let opts = {
+      center: latLng,
+      zoom: 11,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(element.nativeElement, opts);
   }
 
 }
